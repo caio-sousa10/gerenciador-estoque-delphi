@@ -1,0 +1,28 @@
+
+# Configurações locais do Delphi
+*.dproj.local
+*.groupproj.local
+*.identcache
+*.dsk
+*.stat
+
+# Arquivos compilados
+*.dcu
+*.exe
+*.dll
+*.bpl
+*.dcp
+*.map
+*.rsm
+*.tds
+
+# Pastas de compilação
+Win32/
+Win64/
+Debug/
+Release/
+
+# Backups
+*.~*
+*.bak
+*.tmp
