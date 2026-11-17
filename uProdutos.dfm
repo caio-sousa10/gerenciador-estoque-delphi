@@ -14,12 +14,12 @@ object FrmProdutos: TFrmProdutos
   Font.Style = []
   Position = poDesktopCenter
   TextHeight = 17
-  object LblCodigo: TLabel
-    Left = 40
+  object LblCodigoBarras: TLabel
+    Left = 8
     Top = 64
-    Width = 46
+    Width = 87
     Height = 17
-    Caption = 'C'#243'digo:'
+    Caption = 'C'#243'digo Barras:'
   end
   object LblProduto: TLabel
     Left = 36
@@ -49,22 +49,29 @@ object FrmProdutos: TFrmProdutos
     Height = 17
     Caption = 'Estoque:'
   end
-  object EdtCodigo: TEdit
-    Left = 104
+  object LblUnidade: TLabel
+    Left = 8
+    Top = 216
+    Width = 101
+    Height = 17
+    Caption = 'Unidade Medida:'
+  end
+  object EdtCodigoBarras: TEdit
+    Left = 115
     Top = 61
     Width = 121
     Height = 25
     TabOrder = 0
   end
   object EdtProduto: TEdit
-    Left = 104
+    Left = 115
     Top = 109
     Width = 121
     Height = 25
     TabOrder = 1
   end
   object EdtCusto: TEdit
-    Left = 104
+    Left = 115
     Top = 157
     Width = 121
     Height = 25
@@ -110,6 +117,7 @@ object FrmProdutos: TFrmProdutos
     Height = 41
     Caption = 'Salvar'
     TabOrder = 6
+    OnClick = BtnSalvarClick
   end
   object BtnEditar: TButton
     Left = 776
@@ -134,5 +142,21 @@ object FrmProdutos: TFrmProdutos
     Height = 41
     Caption = 'Limpar'
     TabOrder = 9
+  end
+  object btnConsultarProd: TButton
+    Left = 696
+    Top = 168
+    Width = 121
+    Height = 57
+    Caption = 'Consultar'
+    TabOrder = 10
+    OnClick = btnConsultarProdClick
+  end
+  object EdtUnidade: TEdit
+    Left = 115
+    Top = 213
+    Width = 121
+    Height = 25
+    TabOrder = 11
   end
 end
