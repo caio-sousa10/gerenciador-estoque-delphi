@@ -10,6 +10,7 @@ Tecnologias utilizadas
 
 - Delphi 13
 - Object Pascal
+- PostgreSQL
 - VCL
 - Git e GitHub
 
