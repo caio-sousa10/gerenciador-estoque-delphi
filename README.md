@@ -19,10 +19,10 @@ Funcionalidades
 - [x] Estrutura inicial da aplicação
 - [x] Navegação entre telas
 - [X] Cadastro de produtos
+- [X] Consultas SQL utilizando TFDQuery
 - [ ] Edição de produtos
 - [ ] Exclusão de produtos
 - [ ] Controle de movimentações de estoque
-- [ ] Integração com banco de dados SQLite utilizando FireDAC
 - [ ] Relatórios
 
 Autor
