@@ -17,7 +17,7 @@ Funcionalidades
 
 - [x] Estrutura inicial da aplicação
 - [x] Navegação entre telas
-- [ ] Cadastro de produtos
+- [X] Cadastro de produtos
 - [ ] Edição de produtos
 - [ ] Exclusão de produtos
 - [ ] Controle de movimentações de estoque
