@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, Vcl.Grids,
+  Vcl.DBGrids;
 
 type
   TFrmProdutos = class(TForm)
@@ -26,10 +27,13 @@ type
     btnConsultarProd: TButton;
     EdtUnidade: TEdit;
     LblUnidade: TLabel;
+    DBGridProdutos: TDBGrid;
     procedure btnConsultarProdClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
+    procedure BtnLimparClick(Sender: TObject);
   private
     { Private declarations }
+    procedure LimpaCampos; // encapsulamento
   public
     { Public declarations }
   end;
@@ -45,15 +49,33 @@ uses
 
 {$R *.dfm}
 
+procedure TFrmProdutos.LimpaCampos(); // Acessando diretamente dentro do form Produtos
+  begin
+      EdtCodigoBarras.Text := '';
+      EdtProduto.Text := '';
+      EdtCusto.Text := '';
+      EdtVenda.Text := '';
+      EdtEstoque.Text := '';
+      EdtUnidade.Text := '';
+end;
+
 procedure TFrmProdutos.btnConsultarProdClick(Sender: TObject);
 
 begin
-    DM.qryProdutos.Close;
-    DM.qryProdutos.SQL.Text := 'SELECT * FROM PRODUTOS';
-    DM.qryProdutos.Open;
+    DM.qryProdutos.Close;  // finaliza qualquer query previamente
+    DM.qryProdutos.SQL.Text := 'SELECT * FROM PRODUTOS order by ID_PRODUTO';  // query completa, se fosse alguma adição pontual seria add
+    DM.qryProdutos.Open;  // retorna para o Delphi o resultado da query
 
-    showmessage('Total de produtos: ' + DM.qRyProdutos.RecordCount.ToString);
+    showmessage('Total de produtos: ' + DM.qRyProdutos.RecordCount.ToString); // Converte a contagem de linhas retornadas em string pra concatenar
+    DBGridProdutos.Show; // apresentando grid ao consultar
 
+end;
+
+
+procedure TFrmProdutos.BtnLimparClick(Sender: TObject);
+begin
+      // limpar Edt´s
+      LimpaCampos;
 end;
 
 procedure TFrmProdutos.BtnSalvarClick(Sender: TObject);
@@ -82,6 +104,7 @@ begin
 
     DM.qryProdutos.ExecSQL; // executando comando SQL acima
     showmessage('Produto cadastrado com sucesso!!');
+    LimpaCampos;
     except
       on E: Exception do
         showmessage('Não foi possível cadastrar o produto ' + 'Verifique se os valores informados estão corretos...');

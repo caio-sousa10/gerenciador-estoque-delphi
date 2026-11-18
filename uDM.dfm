@@ -16,12 +16,17 @@ object DM: TDM
     Connection = FDConnection
     SQL.Strings = (
       'select * from produtos;')
-    Left = 272
-    Top = 232
+    Left = 408
+    Top = 136
   end
   object FDPhysPgDriverLink1: TFDPhysPgDriverLink
     VendorLib = 'C:\Program Files\PostgreSQL\18\bin\libpq.dll'
     Left = 272
+    Top = 40
+  end
+  object DsProdutos: TDataSource
+    DataSet = qryProdutos
+    Left = 408
     Top = 40
   end
 end

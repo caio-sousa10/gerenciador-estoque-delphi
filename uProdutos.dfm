@@ -112,7 +112,7 @@ object FrmProdutos: TFrmProdutos
   end
   object BtnSalvar: TButton
     Left = 656
-    Top = 93
+    Top = 53
     Width = 89
     Height = 41
     Caption = 'Salvar'
@@ -121,7 +121,7 @@ object FrmProdutos: TFrmProdutos
   end
   object BtnEditar: TButton
     Left = 776
-    Top = 93
+    Top = 53
     Width = 89
     Height = 41
     Caption = 'Editar'
@@ -129,7 +129,7 @@ object FrmProdutos: TFrmProdutos
   end
   object BtnApagar: TButton
     Left = 896
-    Top = 93
+    Top = 53
     Width = 89
     Height = 41
     Caption = 'Apagar'
@@ -137,14 +137,15 @@ object FrmProdutos: TFrmProdutos
   end
   object BtnLimpar: TButton
     Left = 543
-    Top = 93
+    Top = 53
     Width = 89
     Height = 41
     Caption = 'Limpar'
     TabOrder = 9
+    OnClick = BtnLimparClick
   end
   object btnConsultarProd: TButton
-    Left = 696
+    Left = 543
     Top = 168
     Width = 121
     Height = 57
@@ -158,5 +159,25 @@ object FrmProdutos: TFrmProdutos
     Width = 121
     Height = 25
     TabOrder = 11
+  end
+  object DBGridProdutos: TDBGrid
+    Left = 672
+    Top = 112
+    Width = 320
+    Height = 144
+    DataSource = DM.DsProdutos
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 12
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -13
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = [fsBold]
+    Visible = False
   end
 end

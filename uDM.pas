@@ -14,6 +14,7 @@ type
     FDConnection: TFDConnection;
     qryProdutos: TFDQuery;
     FDPhysPgDriverLink1: TFDPhysPgDriverLink;
+    DsProdutos: TDataSource;
   private
     { Private declarations }
   public
