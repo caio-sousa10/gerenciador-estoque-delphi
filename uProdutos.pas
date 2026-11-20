@@ -8,7 +8,7 @@ uses
   Vcl.DBGrids;
 
 type
-  TFrmProdutos = class(TForm)
+  TFrmProdutos = class(TForm) // classe TFrmProdutos criada herda da classe TForm
     LblCodigoBarras: TLabel;
     EdtCodigoBarras: TEdit;
     LblProduto: TLabel;
@@ -28,12 +28,15 @@ type
     EdtUnidade: TEdit;
     LblUnidade: TLabel;
     DBGridProdutos: TDBGrid;
-    procedure btnConsultarProdClick(Sender: TObject);
     procedure BtnSalvarClick(Sender: TObject);
     procedure BtnLimparClick(Sender: TObject);
+    procedure btnConsultarProdClick(Sender: TObject);
   private
     { Private declarations }
-    procedure LimpaCampos; // encapsulamento
+    // encapsulamento e declarações de procedures
+    procedure LimpaCampos;
+    procedure SalvarProduto;
+    procedure ConsultarProdutos;
   public
     { Public declarations }
   end;
@@ -48,19 +51,7 @@ uses
   uDM;
 
 {$R *.dfm}
-
-procedure TFrmProdutos.LimpaCampos(); // Acessando diretamente dentro do form Produtos
-  begin
-      EdtCodigoBarras.Text := '';
-      EdtProduto.Text := '';
-      EdtCusto.Text := '';
-      EdtVenda.Text := '';
-      EdtEstoque.Text := '';
-      EdtUnidade.Text := '';
-end;
-
-procedure TFrmProdutos.btnConsultarProdClick(Sender: TObject);
-
+procedure TFrmPRodutos.ConsultarProdutos();
 begin
     DM.qryProdutos.Close;  // finaliza qualquer query previamente
     DM.qryProdutos.SQL.Text := 'SELECT * FROM PRODUTOS order by ID_PRODUTO';  // query completa, se fosse alguma adição pontual seria add
@@ -68,18 +59,10 @@ begin
 
     showmessage('Total de produtos: ' + DM.qRyProdutos.RecordCount.ToString); // Converte a contagem de linhas retornadas em string pra concatenar
     DBGridProdutos.Show; // apresentando grid ao consultar
-
 end;
 
-
-procedure TFrmProdutos.BtnLimparClick(Sender: TObject);
-begin
-      // limpar Edt´s
-      LimpaCampos;
-end;
-
-procedure TFrmProdutos.BtnSalvarClick(Sender: TObject);
-begin
+procedure TFrmProdutos.SalvarProduto();
+  begin
     try
     DM.qryProdutos.Close;  // garantir que começa uma nova query abaixo
     DM.qryProdutos.SQL.Clear; // limpa a query utilizada;
@@ -109,6 +92,35 @@ begin
       on E: Exception do
         showmessage('Não foi possível cadastrar o produto ' + 'Verifique se os valores informados estão corretos...');
     end;
+end;
+
+procedure TFrmProdutos.LimpaCampos(); // Acessando diretamente dentro do form Produtos
+  begin
+      EdtCodigoBarras.Text := '';
+      EdtProduto.Text := '';
+      EdtCusto.Text := '';
+      EdtVenda.Text := '';
+      EdtEstoque.Text := '';
+      EdtUnidade.Text := '';
+end;
+
+
+procedure TFrmProdutos.btnConsultarProdClick(Sender: TObject);
+begin
+      // consulta produtos
+      ConsultarProdutos;
+end;
+
+procedure TFrmProdutos.BtnLimparClick(Sender: TObject);
+begin
+      // limpar Edt´s
+      LimpaCampos;
+end;
+
+procedure TFrmProdutos.BtnSalvarClick(Sender: TObject);
+begin
+      // salva produto
+      SalvarProduto;
 end;
 
 end.

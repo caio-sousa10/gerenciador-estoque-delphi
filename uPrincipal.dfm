@@ -24,7 +24,6 @@ object FrmPrincipal: TFrmPrincipal
     Color = clDarkblue
     ParentBackground = False
     TabOrder = 0
-    ExplicitTop = -1
     object SpdBtnProdutos: TSpeedButton
       Left = 58
       Top = 72
@@ -101,7 +100,6 @@ object FrmPrincipal: TFrmPrincipal
       Color = clWhite
       ParentBackground = False
       TabOrder = 0
-      ExplicitTop = 248
       object LblVersao: TLabel
         Left = 22
         Top = 9

@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Buttons;
 
 type
-  TFrmPrincipal = class(TForm) // classe do formulário principal
+  TFrmPrincipal = class(TForm) // criação de classe do formulário principal herdada da classe Tform
     PnlMenu: TPanel;
     caption: TPanel;
     SpdBtnProdutos: TSpeedButton;
@@ -59,17 +59,12 @@ end;
 procedure TFrmPrincipal.SpdBtnProdutosClick(Sender: TObject);
 begin
      AtualizarMenu(SpdBtnProdutos);
-      var
-        FormProdutos:TfrmProdutos; // declarando variável do tipo TfrmPRodutos para armazenar suas propriedades posteriormente
-      begin
-        FormProdutos := TfrmProdutos.Create(Self); // variável vira criação de uma instância da classe TfrmProdutos
-        try
-          FormProdutos.ShowModal;  // shoemodal é um método herdado da classe TfrmProdutos que permite que o form aberto
-                                  //inutilze o principal, diferente do show apenas
-        finally   // garante que o free abaixo seja executado mesmo caso haja erro
-          FormProdutos.Free; // libera da memória
-        end;
-      end;
+     Application.CreateForm(TFrmProdutos, frmProdutos); // cria form frmProdutos da classe TFrmProdutos
+     try
+       frmProdutos.ShowModal;  // tratamento de exceção para exibir o form. Caso contrário, libera da memoria e zera a referência/apontamento
+     finally
+       FreeAndNil(frmProdutos);
+     end;
 end;
 
 procedure TFrmPrincipal.SpdBtnRelatoriosClick(Sender: TObject);
