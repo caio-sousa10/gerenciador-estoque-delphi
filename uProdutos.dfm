@@ -126,6 +126,7 @@ object FrmProdutos: TFrmProdutos
     Height = 41
     Caption = 'Editar'
     TabOrder = 7
+    OnClick = BtnEditarClick
   end
   object BtnApagar: TButton
     Left = 896
@@ -134,6 +135,7 @@ object FrmProdutos: TFrmProdutos
     Height = 41
     Caption = 'Apagar'
     TabOrder = 8
+    OnClick = BtnApagarClick
   end
   object BtnLimpar: TButton
     Left = 543

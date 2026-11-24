@@ -23,8 +23,8 @@ O objetivo deste projeto é desenvolver uma aplicação desktop para gerenciamen
 - [x] Consultas SQL utilizando TFDQuery
 - [x] Limpeza dos campos do formulário
 - [x] Exibição dos produtos na grade (TDBGrid) — a grade é preenchida após realizar uma consulta.
-- [ ] Edição de produtos
-- [ ] Exclusão de produtos
+- [X] Edição de produtos
+- [X] Exclusão de produtos
 - [ ] Controle de movimentações de estoque
 - [ ] Relatórios
 

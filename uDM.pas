@@ -10,7 +10,7 @@ uses
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.Phys.PG, FireDAC.Phys.PGDef;
 
 type
-  TDM = class(TDataModule) // classe TDM herdade de TDataModule
+  TDM = class(TDataModule) // classe TDM herdada de TDataModule
     FDConnection: TFDConnection;
     qryProdutos: TFDQuery;
     FDPhysPgDriverLink1: TFDPhysPgDriverLink;
